@@ -1,0 +1,179 @@
+@media (min-width: 768px) {
+  .cards-slider-wrapper > .card {
+    flex: 1;
+    min-width: 40rem !important;
+    opacity: 0;
+    transition: opacity 500ms linear;
+  }
+
+  .feature-slider .active-feat-window {
+    opacity: 1;
+  }
+}
+#root {
+  background-color: #011c32 !important;
+  color: #ffffff !important;
+  overflow-x: hidden !important;
+}
+.card.pcard {
+  background-color: #011c32;
+  border-radius: 1rem;
+  border-color: #4b555e;
+}
+.card.dcard {
+  opacity: 1;
+  background-color: #0f152e;
+  border-radius: 1rem;
+  border-color: #4b555e;
+}
+.card.dcard:hover {
+  opacity: 1.2;
+  background-color: #2d7ebd;
+}
+.card.caroCard {
+  background-color: rgba(45, 126, 189, 0.6);
+  color: #ffffff;
+  border-radius: 25px;
+}
+.parentrow {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+.altrow {
+  background-color: #0f152e !important;
+}
+
+.myClickable {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.myClickable:hover {
+  opacity: 1.5;
+  transform: scale(1.5);
+}
+.cards-slider {
+  position: relative;
+  /*   min-width: 40rem;
+  margin: 0 auto;*/
+  height: 20rem;
+}
+.cards-slider-wrapper {
+  display: flex;
+  position: absolute;
+  transition: transform 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.cards-slider-wrapper > .card {
+  flex: 1;
+  min-width: 22rem;
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+
+/* active cards selected */
+.cards-slider.active-slide-0 #card-0 {
+  opacity: 1;
+}
+.cards-slider.active-slide-1 #card-1 {
+  opacity: 1;
+}
+.cards-slider.active-slide-2 #card-2 {
+  opacity: 1;
+}
+.cards-slider.active-slide-3 #card-3 {
+  opacity: 1;
+}
+.cards-slider.active-slide-4 #card-4 {
+  opacity: 1;
+}
+
+.feature-slider {
+  position: relative;
+  height: 20rem;
+  /*   min-width: 68rem;
+  width: 68rem; */
+  margin: 0 auto;
+}
+.feature-slider-wrapper {
+  display: flex;
+  position: absolute;
+  transition: transform 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.feature-slider-wrapper > div {
+  flex: 1;
+  min-width: 15rem;
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+.feature-slider.active-feature-slide-0 #feat-card-0 {
+  opacity: 1;
+}
+.feature-slider.active-feature-slide-1 #feat-card-1 {
+  opacity: 1;
+}
+.feature-slider.active-feature-slide-2 #feat-card-2 {
+  opacity: 1;
+}
+.feature-slider.active-feature-slide-3 #feat-card-3 {
+  opacity: 1;
+}
+.feature-slider.active-feature-slide-4 #feat-card-4 {
+  opacity: 1;
+}
+.feature-slider.active-feature-slide-5 #feat-card-5 {
+  opacity: 1;
+}
+
+.myActiveEvent-enter {
+  opacity: 0.01;
+  transform: translateX(100%) scale(0.8);
+}
+.myActiveEvent-enter-active {
+  transform: translate(0%) scale(1);
+  opacity: 1;
+  transition: transform 500ms ease-in-out, opacity 300ms ease-in;
+}
+.myActiveEvent-exit {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+.myActiveEvent-exit-active {
+  transform: translate(-20%) scale(0.8);
+  opacity: 0.01;
+  transition: transform 500ms ease-in-out, opacity 300ms ease-in;
+}
+
+.my2ndActiveEvent-enter {
+  opacity: 0.01;
+  transform: translateX(100%) scale(0.8);
+}
+.my2ndActiveEvent-enter-active {
+  transform: translateX(0%) scale(1);
+  opacity: 0.2;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in;
+}
+.my2ndActiveEvent-exit {
+  opacity: 0.2;
+  transform: translateX(0%) scale(1);
+}
+.my2ndActiveEvent-exit-active {
+  transform: translateX(-50%) scale(0.5);
+  opacity: 0.01;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in;
+}
+
+.pcard.eventcard {
+  background-color: rgba(0, 14, 23, 0.6);
+  border-color: rgba(0, 14, 23, 0.6);
+  cursor: pointer;
+  opacity: 0.2;
+}
+.pcard.eventcard:hover {
+  opacity: 0.5;
+  transform: scale(1.02);
+  transition: transform 50ms, opacity 50ms;
+}
+
+.pcard.eventActivecard {
+  background-color: rgba(0, 14, 23, 0.6);
+  border-color: rgba(0, 14, 23, 0.6);
+}
