@@ -3,11 +3,12 @@ import { Card, Row, Col } from "react-bootstrap";
 import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
 const carouselSlidesData = [
   {
     title: "Built for HomeLand",
-    content: "Reduce manul Monitoring",
+    content: "Reduce manual Monitoring",
     index: 0,
     Icon: AccessAlarmsIcon,
   },
@@ -44,7 +45,10 @@ class LastCarousel extends Component {
     this.goToNextSlide = this.goToNextSlide.bind(this);
   }
   goToSlide(index) {
-    this.setState({ activeIndex: index });
+    this.setState({
+      activeIndex: index,
+      currentSlide: this.state.slides[index],
+    });
   }
   goToPrevSlide() {
     let index = this.state.activeIndex;
@@ -70,9 +74,12 @@ class LastCarousel extends Component {
   }
   render() {
     return (
-      <Row className="mt-5 justify-content-center parentrow altrow">
-        <Col md={6}>
-          <Row>
+      <Row
+        className="justify-content-center altrow lcaro-row"
+        /*  style={{ padding: "160px 0px 100px" }} */
+      >
+        <Col md={10}>
+          <Row className="justify-content-center">
             <div
               className={`cards-slider active-slide-${this.state.currentSlide.index}`}
             >
@@ -91,15 +98,24 @@ class LastCarousel extends Component {
               </div>
             </div>
           </Row>
-          <Row className="mt-2 justify-content-center">
+          <Row className="mt-5 justify-content-center">
             <ArrowBackIcon
-              className="myClickable mr-2"
+              className="myClickable mr-5"
               onClick={this.goToPrevSlide}
               disabled={this.state.currentSlide.index === 0}
             />
 
+            {this.state.slides.map((item) => (
+              <FiberManualRecordIcon
+                key={item.index}
+                onClick={() => this.goToSlide(item.index)}
+                className="myClickable align-self-center m-1"
+                style={{ fontSize: "1.5rem", width: "0.5em", height: "0.5em" }}
+              />
+            ))}
+
             <ArrowForwardIcon
-              className="myClickable"
+              className="myClickable ml-5"
               onClick={this.goToNextSlide}
               disabled={
                 this.state.currentSlide.index === this.state.slides.length - 1
@@ -115,31 +131,35 @@ class LastCarousel extends Component {
 const CaroSlide = ({ currentSlide }) => {
   return (
     <Card id={`card-${currentSlide.index}`} className="caroCard">
-      <Card.Body>
-        <Card.Title style={{ textAlign: "center" }}>
-          <h1>
-            <b>{currentSlide.title}</b>
-          </h1>
+      <Card.Body /* style={{ padding: "3rem" }} */>
+        <Card.Title>
+          <h2
+            className="caroCard-heading" /* style={{ fontSize: 40, fontWeight: "900" }} */
+          >
+            {currentSlide.title}
+          </h2>
         </Card.Title>
-        <hr style={{ width: "2rem", border: "1px solid white" }} />
-        <Row className="justify-content-center">
+        <hr style={{ width: "3rem", border: "1px solid white" }} />
+        <Row className="mt-md-5 justify-content-center">
           <span
-            style={{
+            className="caroCard-icon-span"
+            /* style={{
               backgroundColor: "#02192c",
               borderRadius: "50%",
               padding: "18px",
-            }}
+            }} */
           >
             <currentSlide.Icon
-              style={{
-                fontSize: 50,
+              className="caroCard-icon"
+              /* style={{
+                fontSize: 70,
                 color: "white",
-              }}
+              }} */
             />
           </span>
         </Row>
-        <Card.Text className="text-center">
-          <small>{currentSlide.content}</small>
+        <Card.Text className="mt-md-4 text-center" style={{ fontSize: '1rem' }}>
+          {currentSlide.content}
         </Card.Text>
       </Card.Body>
     </Card>

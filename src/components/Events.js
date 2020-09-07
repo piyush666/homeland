@@ -3,6 +3,8 @@ import { Col, Row, Card, Button } from "react-bootstrap";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
 const carouselSlidesData = [
   {
@@ -59,14 +61,24 @@ class Events extends Component {
   }
   render() {
     return (
-      <Row className="justify-content-center parentrow altrow">
-        <Col md={10}>
+      <Row
+        className="justify-content-center parentrow altrow"
+        style={{ padding: "150px 0px 90px" }}
+      >
+        <Col md={9}>
           <Row>
-            <Col md={6}>
-              <h3>
-                <strong>How can we help?</strong>
-              </h3>
-              <h5>Detect Risks in real time</h5>
+            <Col
+              md={8}
+              style={{
+                fontFamily: "Raleway, Helvetica, Arial, Lucida, sans-serif",
+              }}
+            >
+              <h2 style={{ fontSize: "60px", fontWeight: "900" }}>
+                How can we help?
+              </h2>
+              <h2 className="appText" style={{ textAlign: "start" }}>
+                Detect Risks in real time
+              </h2>
             </Col>
             <Col md={3} className="align-self-end ml-5 text-center">
               <Button
@@ -81,8 +93,33 @@ class Events extends Component {
               </Button>
             </Col>
           </Row>
-          <Row>
-            <Col md={6}>
+          <Row className="mt-md-4 mt-3">
+            <div
+              id="playbtn"
+              /*               style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                zIndex: 2,
+              }} */
+            >
+              <span
+                /* style={{
+                  cursor: "pointer",
+                  borderRadius: "9px",
+                  backgroundColor: "rgba(45, 126, 189, 1)",
+                  padding: "70px 20px",
+                }} */
+              >
+                <PlayArrowIcon
+                  /* style={{
+                    fontSize: "150px",
+                    color: "white",
+                  }} */
+                />
+              </span>
+            </div>
+            <Col md={8} style={{ zIndex: 1 }}>
               <SwitchTransition>
                 <CSSTransition
                   key={this.state.activeIndex}
@@ -93,32 +130,63 @@ class Events extends Component {
                   timeout={{ enter: 500, exit: 300 }}
                 >
                   <Card
-                    className="pcard eventActivecard"
+                    className="eventActivecard"
                     onClick={() => this.goToSlide(this.state.activeIndex)}
-                    style={{ height: "16rem", fontSize: 22 }}
+                    /* style={{ height: "16rem", fontSize: 22 }} */
                   >
-                    <Card.Title className="m-3">
-                      <h2>
-                        <b style={{ opacity: "0.2" }}>
-                          {this.state.slides[this.state.activeIndex].index}
-                        </b>
-                        {"  "}
-                        <strong>
+                    <Row className="no-gutters eventCardRow">
+                      <Col xs={1}>
+                        <FiberManualRecordIcon
+                          className="ml-2 ml-md-4"
+                          style={{ fontSize: "1.4rem" }}
+                        />
+                      </Col>
+                      <Col xs={8}>
+                        <h2
+                          /*                           className="mt-3 ml-3  eventCardH2" */
+                          className="ml-3  eventCardH2"
+                          /* style={{
+                            fontSize: "2rem",
+                            fontWeight: 700,
+                          }} */
+                        >
+                          <span
+                            className="eventCardH2-Span"
+                            /* style={{
+                              fontSize: "2.5rem",
+                              fontWeight: 900,
+                              opacity: 0.2,
+                            }} */
+                          >
+                            {this.state.slides[this.state.activeIndex].index}
+                          </span>
+
+                          {"  "}
                           {this.state.slides[this.state.activeIndex].title}
-                        </strong>
-                      </h2>
-                    </Card.Title>
-                    <Card.Body>
-                      <Card.Text>
-                        {this.state.slides[this.state.activeIndex].content}
-                      </Card.Text>
-                      <Button variant="outline-light">Read More</Button>
-                    </Card.Body>
+                        </h2>
+
+                        {/*                         <Card.Body> */}
+                        <Card.Text className="mt-4 ml-3 mt-md-5 eventCardText">
+                          {this.state.slides[this.state.activeIndex].content}
+                        </Card.Text>
+                        <Button
+                          className="mt-3 ml-3 eventCardText"
+                          variant="outline-light"
+                        >
+                          Read More
+                        </Button>
+                        {/*  </Card.Body> */}
+                      </Col>
+                    </Row>
                   </Card>
                 </CSSTransition>
               </SwitchTransition>
             </Col>
-            <Col md={3} className="align-self-center ml-5">
+            <Col
+              md={3}
+              className="align-self-center eventSecCol"
+              style={{ zIndex: 1 }}
+            >
               <SwitchTransition>
                 <CSSTransition
                   key={this.state.secondIndex}
@@ -129,27 +197,51 @@ class Events extends Component {
                   timeout={{ enter: 500, exit: 300 }}
                 >
                   <Card
-                    className="pcard eventcard"
+                    className="eventSecCard"
                     onClick={() => this.goToSlide(this.state.secondIndex)}
-                    style={{ height: "12rem", fontSize: 12 }}
+                    /* style={{ height: "12rem", fontSize: 12 }} */
                   >
-                    <Card.Title className="mt-1 ml-1">
-                      <h2>
-                        <b style={{ opacity: "0.2" }}>
-                          {this.state.slides[this.state.secondIndex].index}
-                        </b>
-                        {"  "}
-                        <strong>
+                    <Row className="no-gutters eventCardRow">
+                      <Col xs={1}>
+                        <FiberManualRecordIcon
+                          className="mt-3 ml-1 ml-md-3"
+                          style={{ fontSize: "1.1rem" }}
+                        />
+                      </Col>
+                      <Col xs={8} className="ml-3">
+                        {/*                     <Card.Title className="mt-1 ml-1"> */}
+                        <h2
+                          className="mt-2 ml-1"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: 700,
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: "30px",
+                              fontWeight: 900,
+                              opacity: 0.2,
+                            }}
+                          >
+                            {this.state.slides[this.state.secondIndex].index}
+                          </span>
+                          {"  "}
                           {this.state.slides[this.state.secondIndex].title}
-                        </strong>
-                      </h2>
-                    </Card.Title>
-                    <Card.Body>
-                      <Card.Text>
-                        {this.state.slides[this.state.secondIndex].content}
-                      </Card.Text>
-                      <Button variant="outline-light">Read More</Button>
-                    </Card.Body>
+                        </h2>
+                        {/*                    </Card.Title>
+
+
+                    <Card.Body> */}
+                        <Card.Text className="mt-4 ml-1">
+                          {this.state.slides[this.state.secondIndex].content}
+                        </Card.Text>
+                        <Button className="mt-2 ml-1" variant="outline-light">
+                          Read More
+                        </Button>
+                        {/*     </Card.Body> */}
+                      </Col>
+                    </Row>
                   </Card>
                 </CSSTransition>
               </SwitchTransition>
