@@ -73,12 +73,28 @@ class Events extends Component {
                 fontFamily: "Raleway, Helvetica, Arial, Lucida, sans-serif",
               }}
             >
-              <h2 style={{ fontSize: "60px", fontWeight: "900" }}>
-                How can we help?
-              </h2>
-              <h2 className="appText" style={{ textAlign: "start" }}>
-                Detect Risks in real time
-              </h2>
+              <Row>
+                <Col xs={12} md={8}>
+                  <h2 style={{ fontSize: "60px", fontWeight: "900" }}>
+                    How can we help?
+                  </h2>
+
+                  <h2 className="appText" style={{ textAlign: "start" }}>
+                    Detect Risks in real time
+                  </h2>
+                </Col>
+                <Col className="" style={{ alignSelf: "flex-end" }} xs={3}>
+                  <h2
+                    style={{
+                      fontSize: "60px",
+                      fontWeight: "900",
+                      opacity: "0.1",
+                    }}
+                  >
+                    Events
+                  </h2>
+                </Col>
+              </Row>
             </Col>
             <Col md={3} className="align-self-end ml-5 text-center">
               <Button
@@ -94,29 +110,9 @@ class Events extends Component {
             </Col>
           </Row>
           <Row className="mt-md-4 mt-3">
-            <div
-              id="playbtn"
-              /*               style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                zIndex: 2,
-              }} */
-            >
-              <span
-                /* style={{
-                  cursor: "pointer",
-                  borderRadius: "9px",
-                  backgroundColor: "rgba(45, 126, 189, 1)",
-                  padding: "70px 20px",
-                }} */
-              >
-                <PlayArrowIcon
-                  /* style={{
-                    fontSize: "150px",
-                    color: "white",
-                  }} */
-                />
+            <div id="playbtn">
+              <span>
+                <PlayArrowIcon />
               </span>
             </div>
             <Col md={8} style={{ zIndex: 1 }}>
@@ -142,22 +138,8 @@ class Events extends Component {
                         />
                       </Col>
                       <Col xs={8}>
-                        <h2
-                          /*                           className="mt-3 ml-3  eventCardH2" */
-                          className="ml-3  eventCardH2"
-                          /* style={{
-                            fontSize: "2rem",
-                            fontWeight: 700,
-                          }} */
-                        >
-                          <span
-                            className="eventCardH2-Span"
-                            /* style={{
-                              fontSize: "2.5rem",
-                              fontWeight: 900,
-                              opacity: 0.2,
-                            }} */
-                          >
+                        <h2 className="ml-3  eventCardH2">
+                          <span className="eventCardH2-Span">
                             {this.state.slides[this.state.activeIndex].index}
                           </span>
 
@@ -165,7 +147,6 @@ class Events extends Component {
                           {this.state.slides[this.state.activeIndex].title}
                         </h2>
 
-                        {/*                         <Card.Body> */}
                         <Card.Text className="mt-4 ml-3 mt-md-5 eventCardText">
                           {this.state.slides[this.state.activeIndex].content}
                         </Card.Text>
@@ -175,7 +156,6 @@ class Events extends Component {
                         >
                           Read More
                         </Button>
-                        {/*  </Card.Body> */}
                       </Col>
                     </Row>
                   </Card>
@@ -209,7 +189,6 @@ class Events extends Component {
                         />
                       </Col>
                       <Col xs={8} className="ml-3">
-                        {/*                     <Card.Title className="mt-1 ml-1"> */}
                         <h2
                           className="mt-2 ml-1"
                           style={{
@@ -229,17 +208,13 @@ class Events extends Component {
                           {"  "}
                           {this.state.slides[this.state.secondIndex].title}
                         </h2>
-                        {/*                    </Card.Title>
 
-
-                    <Card.Body> */}
                         <Card.Text className="mt-4 ml-1">
                           {this.state.slides[this.state.secondIndex].content}
                         </Card.Text>
                         <Button className="mt-2 ml-1" variant="outline-light">
                           Read More
                         </Button>
-                        {/*     </Card.Body> */}
                       </Col>
                     </Row>
                   </Card>
@@ -247,7 +222,6 @@ class Events extends Component {
               </SwitchTransition>
             </Col>
           </Row>
-          {/*           <SliderRow state={this.state} HandleOnClick={this.goToSlide} /> */}
         </Col>
       </Row>
     );

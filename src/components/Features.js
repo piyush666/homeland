@@ -120,7 +120,9 @@ class Features extends Component {
       <Row className="justify-content-center mt-2 parentrow">
         <Col>
           <Row className="justify-content-center">
-            <h2>Detect Potential risk in real time</h2>
+            <h2 style={{ textAlign: "center" }}>
+              Detect Potential risk in real time
+            </h2>
           </Row>
           <hr style={{ width: "2rem", border: "1px solid white" }} />
           <Row id="btn-row-Forsmall" className="justify-content-center">
@@ -144,19 +146,7 @@ class Features extends Component {
           </Row>
 
           <Row id="featForbig" className="mt-2">
-            <div
-              className="feat-left-fix-div"
-              /*  style={{
-                content: "",
-                position: "absolute",
-                top: "0px",
-                left: "0px",
-                width: "8rem",
-                height: "35rem",
-                backgroundColor: "#011c32",
-                zIndex: "2",
-              }} */
-            ></div>
+            <div className="feat-left-fix-div"></div>
             <Col>
               <div
                 className={`feature-slider active-feature-slide-${this.state.activeIndex}`}
@@ -177,7 +167,7 @@ class Features extends Component {
                       currentSlide={item}
                       addclass={
                         this.state.slides.find((e) => e.index === item.index)
-                          ? `active-feat-window`
+                          ? "active-feat-window"
                           : "active-feat-window"
                       }
                       handleClick={this.goToSlide}
@@ -186,19 +176,7 @@ class Features extends Component {
                 </div>
               </div>
             </Col>
-            <div
-              className="feat-right-fix-div"
-              /* style={{
-                content: "",
-                position: "absolute",
-                top: "0px",
-                right: "0px",
-                width: "8rem",
-                height: "35rem",
-                backgroundColor: "#011c32",
-                zIndex: "2",
-              }} */
-            ></div>
+            <div className="feat-right-fix-div"></div>
           </Row>
           <Row id="featForSmall"></Row>
         </Col>
@@ -214,11 +192,7 @@ const CaroSlide = ({ currentSlide, addclass, handleClick }) => {
         style={{}}
         onClick={() => handleClick(currentSlide.index)}
       >
-        <Card.Img
-          src={currentSlide.img}
-          className="fcard-img"
-          /*           style={{ borderRadius: "1rem", width: "21rem", height: "23rem" }} */
-        />
+        <Card.Img src={currentSlide.img} className="fcard-img" />
       </Card>
       <div
         className="ml-4 mt-2"

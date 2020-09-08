@@ -1,15 +1,12 @@
 import React from "react";
 import { Row, Col, Image } from "react-bootstrap";
-import Comp from "../images/Comp.png";
+import Logo from "../images/Logo.webp";
 
 const HomeFooter = () => {
   return (
-    <Row className="justify-content-center altrow">
+    <Row className="justify-content-center altrow py-5">
       <Col md={3}>
-        <p style={{ fontSize: 30 }}>
-          <Image src={Comp} style={{ height: "100px" }} />
-          Pivotchain
-        </p>
+        <Image src={Logo} style={{ height: "6rem" }} />
       </Col>
       <Col md={3}>
         <h5>Contact us</h5>

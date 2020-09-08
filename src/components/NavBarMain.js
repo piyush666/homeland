@@ -1,14 +1,19 @@
 import React from "react";
 import { Navbar, Nav, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Comp from "../images/Comp.png";
+import Logo from "../images/Logo.webp";
 
 export default function NavBarMain() {
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark" className="p-4" style={{backgroundColor:'#0f152e'}}>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      className="p-4"
+      style={{ backgroundColor: "#041329" }}
+    >
       <Navbar.Brand href="/">
-        <Image src={Comp} style={{ height: "50px" }} />
-        PivotChain
+        <Image src={Logo} style={{ height: "4rem" }} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

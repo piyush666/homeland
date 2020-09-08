@@ -74,10 +74,7 @@ class LastCarousel extends Component {
   }
   render() {
     return (
-      <Row
-        className="justify-content-center altrow lcaro-row"
-        /*  style={{ padding: "160px 0px 100px" }} */
-      >
+      <Row className="justify-content-center altrow lcaro-row">
         <Col md={10}>
           <Row className="justify-content-center">
             <div
@@ -131,34 +128,21 @@ class LastCarousel extends Component {
 const CaroSlide = ({ currentSlide }) => {
   return (
     <Card id={`card-${currentSlide.index}`} className="caroCard">
-      <Card.Body /* style={{ padding: "3rem" }} */>
+      <Card.Body>
         <Card.Title>
           <h2
-            className="caroCard-heading" /* style={{ fontSize: 40, fontWeight: "900" }} */
+            className="caroCard-heading"
           >
             {currentSlide.title}
           </h2>
         </Card.Title>
         <hr style={{ width: "3rem", border: "1px solid white" }} />
         <Row className="mt-md-5 justify-content-center">
-          <span
-            className="caroCard-icon-span"
-            /* style={{
-              backgroundColor: "#02192c",
-              borderRadius: "50%",
-              padding: "18px",
-            }} */
-          >
-            <currentSlide.Icon
-              className="caroCard-icon"
-              /* style={{
-                fontSize: 70,
-                color: "white",
-              }} */
-            />
+          <span className="caroCard-icon-span">
+            <currentSlide.Icon className="caroCard-icon" />
           </span>
         </Row>
-        <Card.Text className="mt-md-4 text-center" style={{ fontSize: '1rem' }}>
+        <Card.Text className="mt-md-4 text-center" style={{ fontSize: "1rem" }}>
           {currentSlide.content}
         </Card.Text>
       </Card.Body>
